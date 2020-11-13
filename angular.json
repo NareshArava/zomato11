@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "zomato"
+    }
+  },
+  "defaultProject": "zomato",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,48 @@
+
+<br/>
+<div>
+  <h1> Welcome to FooDieS!!</h1>
+</div>
+<div class="container">
+  <input #city type="text">
+  <button (click) = "getLatLong(city.value)">City</button>
+</div>
+
+<div class="container">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" [(ngModel)] = "name" placeholder="Search Restaurant,cuisine or dishes" aria-label="Recipients username" aria-describedby="button-addon2">
+    <br/>
+    <br/>
+    <div class="input-group-append">
+        <button (click)="onSearch()" class="btn btn-online-secondary" type="button" id="button-addon2">Search</button> 
+    </div>
+</div>
+</div>
+<div class="container1">
+<div *ngIf = "error">
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+  </div>
+<div *ngFor = "let data of results | paginate: { id: 'listing_pagination',
+itemsPerPage: 4,
+currentPage: page,
+totalItems: totalRecords }">
+    <div class="card" style="width: 18rem;">
+        <img src="{{data.restaurant.thumb}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ data.restaurant.name}}</h5>
+          <p class="card-text">{{data.restaurant.location.address}}</p>
+            <p class="card-text">{{data.restaurant.phone_numbers}}</p>
+          <a [routerLink] = "['/details', data.restaurant.R.res_id]" class="btn btn-primary"><button (click)="onDetails()" class="btn btn-online-secondary" type="button" id="button-addon2">Know More  Details</button></a>
+        </div>
+      </div>
+</div>
+</div>
+
+
+<div>
+  <pagination-controls  id="listing_pagination" maxSize="5"
+  directionLinks="true"
+  (pageChange)="page = $event"></pagination-controls>
+</div>

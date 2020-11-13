@@ -1,0 +1,12 @@
+
+<div class="jumbotron">
+    <h1 class="display-4">{{restaurant.name}}</h1>
+    <p class="lead"> {{restaurant.cuisines}} </p>
+    <hr class="my-4">
+    <img src="{{restaurant.featured_image}}" class="card-img-top" alt="...">
+    <p>{{restaurant.location.address}}</p>
+    
+    <a class="btn btn-primary btn-md" [routerLink] = "['/search']" role="button">Go Back</a>
+    
+  </div>
+
