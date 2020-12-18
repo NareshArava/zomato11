@@ -13,7 +13,7 @@ export class AppComponent {
   name = "";
  
   totalRecords: string;
-  page:Number=1;
+  page:number=1;
 
   selectedLocationLat = "28.625789"; 
   selectedLocationLong = "77.210276";
